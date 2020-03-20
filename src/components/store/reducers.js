@@ -4,4 +4,4 @@ const reducers=combineReducers({
 
 });
 
-export default createStore(reducers);
+export default reducers;
