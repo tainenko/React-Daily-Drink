@@ -1,4 +1,4 @@
-import {ADD_ORDER, EDIT_ORDER, DEL_ORDER} from "./actionsTypes";
+import {ADD_ORDER, EDIT_ORDER, DEL_ORDER,GET_ORDER} from "./actionsTypes";
 
 var orderId = 0;
 export const Add_Order = (name, price, notes) => ({
@@ -14,6 +14,6 @@ export const Edir_Order=(id)=>({
     id:id
 });
 export const Del_Order=(id)=>({
-    type:EDIT_ORDER,
+    type:DEL_ORDER,
     id:id
 });
