@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Field} from "formik";
 import ErrorMessage from "./errormessage";
 
-const DetailItem=({label,name,as="text",placeholder,errors,component="div"})=>{
+const DrinkField=({label,name,as="text",placeholder,errors,component="div"})=>{
     return (
         <div className="m-b-10">
             <label htmlFor={name}>{label}</label>
@@ -13,10 +13,10 @@ const DetailItem=({label,name,as="text",placeholder,errors,component="div"})=>{
 )
 };
 
-DetailItem.propTypes={
+DrinkField.propTypes={
     label:PropTypes.string.isRequired,
     name:PropTypes.string.isRequired
 
 };
 
-export default DetailItem;
+export default DrinkField;
