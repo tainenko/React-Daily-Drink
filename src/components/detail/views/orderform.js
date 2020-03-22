@@ -35,12 +35,8 @@ const OrderForm = ({AddOrder}) => (
               }) => (
                 <Form className="dailyDrink__orderList">
                     <DrinkField label="Name:" name="name" errors={errors} placeholder="請輸入飲料"/>
-                    <label htmlFor="Price">Price</label>
-                    <Field type="number" name="price" placeholder="請輸入價碼"/>
-                    <ErrorMessage errors={errors} component="div" className="error" name="price"/>
-                    <label htmlFor="Notes">Notes</label>
-                    <Field name="notes" as="textarea" placeholder="備註：甜度、冰塊、加料…"/>
-                    <ErrorMessage errors={errors} component="div" className="error" name="notes"/>
+                    <DrinkField label="Price:" name="price" filedtype="number" errors={errors} placeholder="請輸入價錢"/>
+                    <DrinkField label="Notes:" name="notes" as="textarea" errors={errors} placeholder="請輸入飲料"/>
                     <div className="dailyDrink__orderList__control">
                         <button type="submit" className="btn btn-add transition">Submit</button>
                         <button className="btn btn-delete transition">Cancel</button>
