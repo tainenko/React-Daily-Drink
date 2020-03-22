@@ -3,11 +3,11 @@ import {connect} from "react-redux"
 import {AddOrder} from '../actions'
 import {Formik, Field, Form} from "formik";
 import OrderSchema from "./orderschema";
+import ErrorInject from "./errorinject";
 import ErrorMessage from "./errormessage";
 import DrinkField from "./drinkfield";
 import "./style.scss"
 import "../../drinklist/views/style.scss"
-
 
 
 const OrderForm = ({AddOrder}) => (
@@ -34,9 +34,11 @@ const OrderForm = ({AddOrder}) => (
                   /* and other goodies */
               }) => (
                 <Form className="dailyDrink__orderList">
-                    <DrinkField label="Name:" name="name" errors={errors} placeholder="請輸入飲料"/>
-                    <DrinkField label="Price:" name="price" filedtype="number" errors={errors} placeholder="請輸入價錢"/>
-                    <DrinkField label="Notes:" name="notes" as="textarea" errors={errors} placeholder="請輸入飲料"/>
+                    <ErrorInject errors={errors}>
+                        <DrinkField label="Name:" name="name" placeholder="請輸入飲料"/>
+                        <DrinkField label="Price:" name="price" filedtype="number" placeholder="請輸入價錢"/>
+                        <DrinkField label="Notes:" name="notes" as="textarea" placeholder="請輸入飲料"/>
+                    </ErrorInject>
                     <div className="dailyDrink__orderList__control">
                         <button type="submit" className="btn btn-add transition">Submit</button>
                         <button className="btn btn-delete transition">Cancel</button>
