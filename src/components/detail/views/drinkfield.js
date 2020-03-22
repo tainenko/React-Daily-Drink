@@ -1,23 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Field} from "formik";
-import ErrorMessage from "./errormessage";
+import {useField} from "formik";
 
-const DrinkField = ({label, name, as = "input", filedtype = "text", placeholder, component = "div"}) => {
+const DrinkField = ({label,...props}) => {
+    const [field,meta,helpers]=useField(props)
     return (
         <div className="m-b-10">
-            <label htmlFor={name}>{label}</label>
-            <Field className="orderDetail__item" as={as} type={filedtype} name={name} id={name}
-                   placeholder={placeholder}/>
-            <ErrorMessage component={component} className="error" name={name}/>
+            <label>
+                {label}
+                <input {...field} {...props} />
+            </label>
+            {meta.error ? (
+                <div className='error'>{meta.error}</div>
+            ) : null}
         </div>
     )
 };
 
 DrinkField.propTypes = {
     label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-
 };
 
 
