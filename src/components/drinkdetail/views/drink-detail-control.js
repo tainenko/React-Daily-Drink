@@ -10,7 +10,7 @@ const DrinkDetailControl = () => {
                     disabled={isSubmitting}>
                 Submit
             </button>
-            <button type="button" className="btn btn-delete transition" onClick={values.handl eCancel}>Cancel</button>
+            <button type="button" className="btn btn-delete transition" onClick={values.handleCancel}>Cancel</button>
         </div>
     )
 };
