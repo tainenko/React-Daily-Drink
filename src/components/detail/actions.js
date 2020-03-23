@@ -1,19 +1,23 @@
-import {ADD_ORDER, EDIT_ORDER, DEL_ORDER,GET_ORDER} from "./actionsTypes";
+import {ADDORDER, EDITORDER, DELORDER,DELSOMEORDER} from "./actionsTypes";
 
-var orderId = 0;
-export const Add_Order = (name, price, notes) => ({
-    type: ADD_ORDER,
+let orderId = 0;
+export const AddOrder = (values) => ({
+    type: ADDORDER,
     id: orderId++,
-    name: name,
-    price: price,
-    notes: notes
+    name: values.name,
+    price: values.price,
+    notes: values.notes
 });
 
-export const Edir_Order=(id)=>({
-    type:EDIT_ORDER,
-    id:id
+export const EditOrder = (id) => ({
+    type: EDITORDER,
+    id: id
 });
-export const Del_Order=(id)=>({
-    type:DEL_ORDER,
-    id:id
+export const DelOrder = (id) => ({
+    type: DELORDER,
+    id: id
+});
+export const DelSomeOrder = (list)=>({
+    type:DELSOMEORDER,
+    list:list
 });
