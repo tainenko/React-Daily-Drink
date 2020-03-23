@@ -2,11 +2,13 @@ import React from 'react';
 import Header from "../../header";
 import OrderFormik from "./orderFormik";
 
-const OrderDetailPage = ({item}) => (
+const OrderDetailPage = () => {
+
+    return (
     <div className="w900 p-20">
         <Header title="Drink DeTail"/>
-        <OrderFormik initialValues={item}/>
+        <OrderFormik />
     </div>
-);
+)};
 
 export default OrderDetailPage;

@@ -4,7 +4,7 @@ import DrinkListItem from "./drink-list-item";
 import DrinkListControl from "./drink-list-control";
 import DrinkListTitle from "./drink-list-title";
 import {connect} from "react-redux";
-import {DelSomeOrder} from "../../detail/actions";
+import {DelSomeOrder} from "../../drinkdetail/actions";
 import {history} from "../../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
@@ -35,12 +35,12 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
     };
     const toggleEditDetail = (item) => {
         history.push({
-            pathname:'/detail',
+            pathname:'/drinkdetail',
             state:item
         })
     };
     const toggleAddStatus=()=>{
-        history.push('/detail')
+        history.push('/drinkdetail')
 
     };
 
