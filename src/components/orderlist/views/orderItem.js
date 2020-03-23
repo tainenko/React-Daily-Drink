@@ -5,7 +5,6 @@ const OrderItem = ({item, handleChange, checked, toggleEditDetail}) => (
     <div
         key={item.id}
         className="dailyDrink__list__order transition"
-        onClick={() => toggleEditDetail(item)}
     >
         <input
             className="checkbox list-check"
@@ -13,9 +12,9 @@ const OrderItem = ({item, handleChange, checked, toggleEditDetail}) => (
             onChange={handleChange}
             checked={checked}
         />
-        <div className="list-name">{item.name}</div>
-        <div className="list-price">{item.price}</div>
-        <div className="list-note">{item.notes}</div>
+        <div className="list-name" onClick={() => toggleEditDetail(item)}>{item.name}</div>
+        <div className="list-price" onClick={() => toggleEditDetail(item)}>{item.price}</div>
+        <div className="list-note" onClick={() => toggleEditDetail(item)}>{item.notes}</div>
     </div>
 );
 
