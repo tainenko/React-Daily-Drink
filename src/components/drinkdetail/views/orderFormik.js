@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Formik} from "formik";
 import OrderSchema from "./orderschema";
 import "./style.scss"
-import InnerForm from "./innerForm";
+import DrinkDetailInnerform from "./drink-detail-innerform";
 import {AddOrder, EditOrder} from "../actions";
 import {connect} from "react-redux";
 import {history} from "../../../App.jsx";
@@ -35,7 +35,7 @@ const OrderFormik = ({handleAddOrder, handleEditOrder}) => {
                 });
                 history.push('/');
             }}>
-            <InnerForm/>
+            <DrinkDetailInnerform/>
         </Formik>
     );
 };

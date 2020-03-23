@@ -3,7 +3,7 @@ import {Form, Formik, useField, useFormikContext} from "formik";
 import DrinkField from "./drinkfield";
 import OrderControl from "./ordercontrol";
 
-const InnerForm = () => (
+const DrinkDetailInnerform = () => (
     <Form className="dailyDrink__orderList">
         <DrinkField label="Name:" name="name" type="text" placeholder="請輸入飲料"/>
         <DrinkField label="Price:" name="price" type="number" placeholder="請輸入價錢"/>
@@ -13,4 +13,4 @@ const InnerForm = () => (
 );
 
 
-export default InnerForm;
+export default DrinkDetailInnerform;
