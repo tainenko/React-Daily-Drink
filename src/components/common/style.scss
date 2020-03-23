@@ -1,0 +1,154 @@
+// ==========================================================================
+// common style
+// ==========================================================================
+.w900,
+.w1200 {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.w900 {
+  max-width: 900px;
+}
+
+.w1200 {
+  max-width: 1200px;
+}
+
+.col50 {
+  width: 50%;
+}
+
+.col33 {
+  width: 33.33%;
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.clear-float:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.checkbox input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkbox label {
+  display: inline-block !important;
+  margin: 0;
+  padding: 0px 0 0 20px;
+  position: relative;
+  line-height: 20px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.checkbox label:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: 0;
+  margin: auto 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #515151;
+}
+
+.checkbox input:checked + label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: 2px;
+  margin: auto 0;
+  background-color: #515151;
+  width: 10px;
+  height: 10px;
+}
+
+.App-header {
+  color: #000;
+}
+
+/* transition */
+.transition {
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -ms-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+// ==========================================================================
+// app style
+// ==========================================================================
+.App {
+  &__header {
+    background-color: #313131;
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 1.5em;
+  }
+}
+
+.btn {
+  padding: 4px 10px;
+  border-radius: 4px;
+
+  &-add {
+    color: green;
+
+    &:hover {
+      color: #fff;
+      background-color: green;
+    }
+
+    &.disable {
+      color: #e5e5e5;
+      cursor: auto;
+      pointer-events: none;
+    }
+  }
+
+  &-delete {
+    color: red;
+
+    &:hover {
+      color: #fff;
+      background-color: red;
+    }
+
+    &.disable {
+      color: #e5e5e5;
+      cursor: auto;
+      pointer-events: none;
+    }
+  }
+}
+
+.error {
+  color: red;
+}
