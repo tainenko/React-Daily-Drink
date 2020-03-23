@@ -4,7 +4,7 @@ import DrinkListItem from "./drink-list-item";
 import DrinkListControl from "./drink-list-control";
 import DrinkListTitle from "./drink-list-title";
 import {connect} from "react-redux";
-import {DelSomeOrder} from "../../drinkdetail/actions";
+import {actions} from"../../drinkdetail";
 import {history} from "../../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
@@ -79,7 +79,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         DelSomeOrder: (list) => {
-            dispatch(DelSomeOrder(list))
+            dispatch(actions.DelSomeOrder(list))
         }
 
     }
