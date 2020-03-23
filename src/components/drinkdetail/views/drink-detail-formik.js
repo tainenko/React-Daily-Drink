@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import {Formik} from "formik";
-import OrderSchema from "./orderschema";
+import DrinkDetailErrorSchema from "./drink-detail-error-schema";
 import "./style.scss"
 import DrinkDetailInnerform from "./drink-detail-innerform";
 import {AddOrder, EditOrder} from "../actions";
@@ -24,7 +24,7 @@ const DrinkDetailFormik = ({handleAddOrder, handleEditOrder}) => {
                     }
                 }
             }
-            validationSchema={OrderSchema}
+            validationSchema={DrinkDetailErrorSchema}
             onSubmit={(values, actions) => {
                 actions.setSubmitting(false);
                 handleSubmit({

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from "yup";
 
-const OrderSchema = Yup.object().shape({
+const DrinkDetailErrorSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, 'Too Short!')
         .max(70, 'Too Long!')
@@ -15,4 +15,4 @@ const OrderSchema = Yup.object().shape({
         .max(300,'備註不可超過300字')
 });
 
-export default OrderSchema;
+export default DrinkDetailErrorSchema;
