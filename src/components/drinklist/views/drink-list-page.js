@@ -58,9 +58,9 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                 {
                     orders ?
                         orders.map((item) => {
-                            return <DrinkListItem key={item.id} item={item} handleChange={() => handleChange(item)}
+                            return <DrinkListItem key={item.id} item={item} handleChange={handleChange}
                                                   checked={group.indexOf(item.id) !== -1}
-                                                  toggleEditDetail={() => toggleEditDetail(item)}/>
+                                                  toggleEditDetail={toggleEditDetail}/>
                         })
                         : null
                 }
