@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Formik, useField, useFormikContext} from "formik";
+import {Form} from "formik";
 import DrinkField from "./drinkfield";
 import DrinkDetailControl from "./drink-detail-control";
 
