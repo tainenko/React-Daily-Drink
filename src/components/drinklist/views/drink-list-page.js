@@ -35,12 +35,12 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
     };
     const toggleEditDetail = (item) => {
         history.push({
-            pathname:'/drinkdetail',
+            pathname:'/detail',
             state:item
         })
     };
     const toggleAddStatus=()=>{
-        history.push('/drinkdetail')
+        history.push('/detail')
 
     };
 
