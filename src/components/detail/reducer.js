@@ -1,8 +1,8 @@
-import {ADD_ORDER, DEL_ORDER, EDIT_ORDER, GET_ORDER} from "./actionsTypes";
+import {ADDORDER, DELORDER, DELSOMEORDER, EDITORDER} from "./actionsTypes";
 
 const reducer = (state = [], action) => {
     switch (action.type) {
-        case ADD_ORDER: {
+        case ADDORDER: {
             return [
                 {
                     id: action.id,
@@ -13,7 +13,7 @@ const reducer = (state = [], action) => {
                 ...state
             ]
         }
-        case EDIT_ORDER: {
+        case EDITORDER: {
             return state.forEach((item) => {
                 if (item.id === action.id) {
                     item.name = action.name;
@@ -22,9 +22,14 @@ const reducer = (state = [], action) => {
                 }
             })
         }
-        case DEL_ORDER: {
+        case DELORDER: {
             return state.filter((item) => {
                 return item.id !== action.id
+            })
+        }
+        case DELSOMEORDER: {
+            return state.filter((item) => {
+                return action.list.indexOf(item.id) === -1
             })
         }
         default:
