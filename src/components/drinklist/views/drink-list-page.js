@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Header from "../../header";
 import DrinkListItem from "./drink-list-item";
 import DrinkListControl from "./drink-list-control";
-import OrderListTitle from "./title";
+import DrinkListTitle from "./drink-list-title";
 import {connect} from "react-redux";
 import {DelSomeOrder} from "../../detail/actions";
 import {history} from "../../../App.jsx"
@@ -52,7 +52,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                 <DrinkListControl isDelClickable={group.length > 0}
                                   handleDeleteBtn={handleDeleteBtn}
                                   toggleAddStatus={toggleAddStatus}/>
-                <OrderListTitle
+                <DrinkListTitle
                     allChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
                 {

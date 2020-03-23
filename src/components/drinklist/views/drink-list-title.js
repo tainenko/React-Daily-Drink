@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OrderListTitle = ({allChecked, toggleAllCheckbox}) => (
+const DrinkListTitle = ({allChecked, toggleAllCheckbox}) => (
     <div className="dailyDrink__list__head">
         <input
             className="checkbox list-check"
@@ -13,4 +13,4 @@ const OrderListTitle = ({allChecked, toggleAllCheckbox}) => (
         <div className="list-note">Note</div>
     </div>
 );
-export default OrderListTitle;
+export default DrinkListTitle;
