@@ -4,29 +4,45 @@ import {Formik} from "formik";
 import OrderSchema from "./orderschema";
 import "./style.scss"
 import InnerForm from "./innerForm";
+import {AddOrder} from "../actions";
+import {connect} from "react-redux";
 
 
-const OrderForm = ({initialValues = {}}) => (
+const OrderFormik = ({item = {}, handleAddOrder}) => (
     <Formik
-        initialValues={{
-            ...initialValues,
-            handleCancel: () => {
-                console.log("Delete Button has been clicked!")
+        initialValues={
+            {
+                ...item,
+                handleCancel: () => {
+                    console.log("Delete Button has been clicked!")
+                }
             }
-        }
         }
         validationSchema={OrderSchema}
         onSubmit={(values, actions) => {
             actions.setSubmitting(false);
-            alert(JSON.stringify(values, null, 2));
-        }}
-    >
+            handleAddOrder({
+                name: values.name,
+                price: values.price,
+                notes: values.notes
+            });
+        }}>
         <InnerForm/>
     </Formik>
 );
 
-OrderForm.propTypes = {
+OrderFormik.propTypes = {
     initialValues: PropTypes.object
 };
 
-export default OrderForm;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleAddOrder: (item) => {
+            dispatch(AddOrder(item))
+        }
+    }
+
+};
+
+export default connect(null, mapDispatchToProps)(OrderFormik);
