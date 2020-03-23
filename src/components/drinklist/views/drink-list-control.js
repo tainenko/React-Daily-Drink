@@ -1,6 +1,6 @@
 import React from "react";
 
-const OrderListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) => (
+const DrinkListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) => (
     <div className="dailyDrink__list__control">
         <button
             className="btn btn-add transition"
@@ -17,4 +17,4 @@ const OrderListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) =>
     </div>
 );
 
-export default OrderListControl;
+export default DrinkListControl;

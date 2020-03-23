@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Header from "../../header";
 import OrderItem from "./orderItem";
-import OrderListControl from "./listcontrol";
+import DrinkListControl from "./drink-list-control";
 import OrderListTitle from "./title";
 import {connect} from "react-redux";
 import {DelSomeOrder} from "../../detail/actions";
@@ -49,9 +49,9 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
         <div className="dailyDrink w900 p-20">
             <Header title="Daily Drink"/>
             <div className="dailyDrink__list">
-                <OrderListControl isDelClickable={group.length > 0}
+                <DrinkListControl isDelClickable={group.length > 0}
                                   handleDeleteBtn={handleDeleteBtn}
-                toggleAddStatus={toggleAddStatus}/>
+                                  toggleAddStatus={toggleAddStatus}/>
                 <OrderListTitle
                     allChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
