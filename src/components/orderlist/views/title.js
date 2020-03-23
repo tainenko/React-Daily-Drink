@@ -1,12 +1,12 @@
 import React from 'react';
 
-const OrderListTitle = ({checked, toggleAllCheckbox, allChecked}) => (
+const OrderListTitle = ({allChecked, toggleAllCheckbox}) => (
     <div className="dailyDrink__list__head">
         <input
             className="checkbox list-check"
             type="checkbox"
             onChange={toggleAllCheckbox}
-            checked={checked}
+            checked={allChecked}
         />
         <div className="list-name">Name</div>
         <div className="list-price">Price</div>
