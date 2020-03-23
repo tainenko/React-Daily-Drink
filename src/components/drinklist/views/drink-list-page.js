@@ -51,7 +51,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
             <div className="dailyDrink__list">
                 <DrinkListControl isDelClickable={group.length > 0}
                                   handleDeleteBtn={handleDeleteBtn}
-                                  toggleAddStatus={handleAddItem}/>
+                                  handleAddItem={handleAddItem}/>
                 <DrinkListTitle
                     isAllChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
