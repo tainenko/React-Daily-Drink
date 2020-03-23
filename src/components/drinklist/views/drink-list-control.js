@@ -1,10 +1,10 @@
 import React from "react";
 
-const DrinkListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) => (
+const DrinkListControl = ({isDelClickable, handleAddItem, handleDeleteBtn}) => (
     <div className="dailyDrink__list__control">
         <button
             className="btn btn-add transition"
-            onClick={toggleAddStatus}
+            onClick={handleAddItem}
         >
             + Add
         </button>

@@ -39,7 +39,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
             state:item
         })
     };
-    const toggleAddStatus=()=>{
+    const handleAddItem=()=>{
         history.push('/detail')
 
     };
@@ -51,7 +51,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
             <div className="dailyDrink__list">
                 <DrinkListControl isDelClickable={group.length > 0}
                                   handleDeleteBtn={handleDeleteBtn}
-                                  toggleAddStatus={toggleAddStatus}/>
+                                  toggleAddStatus={handleAddItem}/>
                 <DrinkListTitle
                     allChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
