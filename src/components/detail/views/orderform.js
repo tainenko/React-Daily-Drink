@@ -1,39 +1,27 @@
 import React from 'react';
-import {AddOrder} from '../actions'
+import PropTypes from "prop-types";
 import {Formik} from "formik";
 import OrderSchema from "./orderschema";
 import "./style.scss"
-import "../../drinklist/views/style.scss"
 import InnerForm from "./innerForm";
 
 
-const OrderForm = ({initialValues = {}}) => (
+const OrderForm = ({initialValues = {}, onSubmit}) => (
     <Formik
         initialValues={initialValues}
         validationSchema={OrderSchema}
         onSubmit={(values, actions) => {
-            alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
+            alert(JSON.stringify(values, null, 2));
+            onSubmit(values)
         }}>
         <InnerForm/>
     </Formik>
 );
 
-const getOrderById = (state, id) => {
-    return state.filter((item) => {
-        return item.id === id
-    })
-};
-
-const mapStateToProps = (state) => {
-    order:getOrderById()
+OrderForm.propTypes = {
+    initialVlaues: PropTypes.object.isRequired,
+    onSubmit: PropTypes.object.isRequired
 }
-
-const mapDispatchToProps = (dispatch) => {
-    AddOrder:(values) => {
-        dispatch(AddOrder(values));
-    }
-};
-
 
 export default OrderForm;
