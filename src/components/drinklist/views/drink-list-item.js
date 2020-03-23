@@ -1,7 +1,7 @@
 import "./style.scss";
 import React from "react";
 
-const OrderItem = ({item, handleChange, checked, toggleEditDetail}) => (
+const DrinkListItem = ({item, handleChange, checked, toggleEditDetail}) => (
     <div
         key={item.id}
         className="dailyDrink__list__order transition"
@@ -18,4 +18,4 @@ const OrderItem = ({item, handleChange, checked, toggleEditDetail}) => (
     </div>
 );
 
-export default OrderItem;
+export default DrinkListItem;

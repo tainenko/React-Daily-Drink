@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Header from "../../header";
-import OrderItem from "./orderItem";
+import DrinkListItem from "./drink-list-item";
 import DrinkListControl from "./drink-list-control";
 import OrderListTitle from "./title";
 import {connect} from "react-redux";
@@ -58,9 +58,9 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                 {
                     orders ?
                         orders.map((item) => {
-                            return <OrderItem key={item.id} item={item} handleChange={() => handleChange(item)}
-                                              checked={group.indexOf(item.id) !== -1}
-                                              toggleEditDetail={()=>toggleEditDetail(item)}/>
+                            return <DrinkListItem key={item.id} item={item} handleChange={() => handleChange(item)}
+                                                  checked={group.indexOf(item.id) !== -1}
+                                                  toggleEditDetail={()=>toggleEditDetail(item)}/>
                         })
                         : null
                 }
