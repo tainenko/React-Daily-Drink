@@ -4,7 +4,7 @@ const OrderListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) =>
     <div className="dailyDrink__list__control">
         <button
             className="btn btn-add transition"
-            onClick={() => toggleAddStatus()}
+            onClick={toggleAddStatus}
         >
             + Add
         </button>

@@ -5,6 +5,7 @@ import OrderListControl from "./listcontrol";
 import OrderListTitle from "./title";
 import {connect} from "react-redux";
 import {DelSomeOrder} from "../../detail/actions";
+import {history} from "../../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
     const [group, setGroup] = useState([]);
@@ -32,7 +33,15 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
         DelSomeOrder(group);
         setGroup([])
     };
-    const toggleEditDetail = () => {
+    const toggleEditDetail = (item) => {
+        history.push({
+            pathname:'/detail',
+            state:item
+        })
+    };
+    const toggleAddStatus=()=>{
+        history.push('/detail')
+
     };
 
 
@@ -41,7 +50,8 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
             <Header title="Daily Drink"/>
             <div className="dailyDrink__list">
                 <OrderListControl isDelClickable={group.length > 0}
-                                  handleDeleteBtn={handleDeleteBtn}/>
+                                  handleDeleteBtn={handleDeleteBtn}
+                toggleAddStatus={toggleAddStatus}/>
                 <OrderListTitle
                     allChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
@@ -50,7 +60,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                         orders.map((item) => {
                             return <OrderItem key={item.id} item={item} handleChange={() => handleChange(item)}
                                               checked={group.indexOf(item.id) !== -1}
-                                              toggleEditDetail={toggleEditDetail}/>
+                                              toggleEditDetail={()=>toggleEditDetail(item)}/>
                         })
                         : null
                 }
