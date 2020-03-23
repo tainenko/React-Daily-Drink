@@ -1,14 +1,12 @@
 import React from 'react';
 import Header from "../../header";
-import OrderForm from "./orderform";
+import OrderFormik from "./orderFormik";
 
-const OrderDetailPage = ({AddOrder}) => (
+const OrderDetailPage = ({item}) => (
     <div className="w900 p-20">
         <Header title="Drink DeTail"/>
-        <OrderForm/>
+        <OrderFormik initialValues={item}/>
     </div>
 );
-
-
 
 export default OrderDetailPage;
