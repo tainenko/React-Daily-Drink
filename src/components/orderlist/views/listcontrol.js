@@ -1,6 +1,6 @@
 import React from "react";
 
-const OrderListControl=({toggleAddStatus,handleDeleteBtn})=>(
+const OrderListControl = ({isDelClickable, toggleAddStatus, handleDeleteBtn}) => (
     <div className="dailyDrink__list__control">
         <button
             className="btn btn-add transition"
@@ -9,8 +9,8 @@ const OrderListControl=({toggleAddStatus,handleDeleteBtn})=>(
             + Add
         </button>
         <button
-            className="btn btn-delete transition"
-            onClick={() => handleDeleteBtn()}
+            className={`btn btn-delete transition ${isDelClickable ? "" : "disable"}`}
+            onClick={handleDeleteBtn}
         >
             - Delete
         </button>
