@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../../header";
 import OrderFormik from "./orderFormik";
 
-const OrderDetailPage = () => {
+const DrinkDetailPage = () => {
 
     return (
     <div className="w900 p-20">
@@ -11,4 +11,4 @@ const OrderDetailPage = () => {
     </div>
 )};
 
-export default OrderDetailPage;
+export default DrinkDetailPage;

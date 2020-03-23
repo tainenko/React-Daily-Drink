@@ -1,6 +1,6 @@
 import reducer from "./reducer";
 import * as actions from "./actions";
-import OrderDetailPage from "./views/detail"
+import DrinkDetailPage from "./views/drink-detail-page"
 
 
-export {OrderDetailPage,reducer,actions};
+export {DrinkDetailPage,reducer,actions};
