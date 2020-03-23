@@ -1,72 +1,78 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../../header";
 import OrderItem from "./orderItem";
 import OrderListControl from "./listcontrol";
 import OrderListTitle from "./title";
+import {connect} from "react-redux";
+import {DelSomeOrder} from "../../detail/actions";
 
-class DrinkListPage extends React.Component {
-    state = {
-        groups: [],
-        ...this.props
-    };
+const DrinkListPage = ({orders, DelSomeOrder}) => {
+    const [group, setGroup] = useState([]);
 
-    handleChange = (item) => {
-        const index = this.state.groups.indexOf(item.id);
+
+    const handleChange = (item) => {
+        const index = group.indexOf(item.id);
         if (index === -1) {
-            this.setState(prevState => ({
-                groups: [...prevState.groups, item.id]
-            }))
+            setGroup((prevState) => (
+                [...prevState, item.id]
+            ))
         } else {
-            this.setState({
-                groups: this.state.groups.filter((value) => value !== item.id)
-            })
+            setGroup((prevState) => (prevState.filter((value) => value !== item.id)
+            ))
         }
     };
-    toggleAllCheckbox = () => {
-        if (this.state.groups.length !== this.state.list.length) {
-            this.setState({
-                groups: this.state.list.map((item) => {
-                    return item.id
-                })
-            })
+    const toggleAllCheckbox = () => {
+        if (group.length !== orders.length) {
+            setGroup(orders.map((item) => item.id))
         } else {
-            this.setState({
-                groups: []
-            })
+            setGroup([])
         }
     };
-    handleDeleteBtn = () => {
-        this.setState({
-            list: this.state.list.filter((item) => (this.state.groups.indexOf(item.id) === -1)),
-            groups: []
-        })
+    const handleDeleteBtn = () => {
+        DelSomeOrder(group);
+        setGroup([])
     };
-    toggleEditDetail = () => {
+    const toggleEditDetail = () => {
     };
 
 
-    render() {
-        return (
-            <div className="dailyDrink w900 p-20">
-                <Header title="Daily Drink"/>
-                <div className="dailyDrink__list">
-                    <OrderListControl disDel={this.state.groups.length > 0} handleDeleteBtn={this.handleDeleteBtn}/>
-                    <OrderListTitle
-                        allChecked={0 !== this.state.groups.length && this.state.groups.length === this.state.list.length}
-                        toggleAllCheckbox={this.toggleAllCheckbox}/>
-                    {
-                        this.state.list.map((item) => {
-                            return <OrderItem key={item.id} item={item} handleChange={() => this.handleChange(item)}
-                                              checked={this.state.groups.indexOf(item.id) !== -1}
-                                              toggleEditDetail={this.toggleEditDetail}/>
+    return (
+        <div className="dailyDrink w900 p-20">
+            <Header title="Daily Drink"/>
+            <div className="dailyDrink__list">
+                <OrderListControl isDelClickable={group.length > 0}
+                                  handleDeleteBtn={handleDeleteBtn}/>
+                <OrderListTitle
+                    allChecked={0 !== group.length && group.length === orders.length}
+                    toggleAllCheckbox={toggleAllCheckbox}/>
+                {
+                    orders ?
+                        orders.map((item) => {
+                            return <OrderItem key={item.id} item={item} handleChange={() => handleChange(item)}
+                                              checked={group.indexOf(item.id) !== -1}
+                                              toggleEditDetail={toggleEditDetail}/>
                         })
-                    }
+                        : null
+                }
 
-                </div>
             </div>
-        );
+        </div>
+    );
+
+};
+
+const mapStateToProps = (state) => {
+    return {
+        orders: state.orders
     }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        DelSomeOrder: (list) => {
+            dispatch(DelSomeOrder(list))
+        }
 
-}
+    }
+};
 
-export default DrinkListPage;
+export default connect(mapStateToProps, mapDispatchToProps)(DrinkListPage);
