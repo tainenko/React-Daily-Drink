@@ -35,11 +35,11 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
     };
     const toggleEditDetail = (item) => {
         history.push({
-            pathname:'/detail',
-            state:item
+            pathname: '/detail',
+            state: item
         })
     };
-    const handleAddItem=()=>{
+    const handleAddItem = () => {
         history.push('/detail')
 
     };
@@ -53,14 +53,14 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                                   handleDeleteBtn={handleDeleteBtn}
                                   toggleAddStatus={handleAddItem}/>
                 <DrinkListTitle
-                    allChecked={0 !== group.length && group.length === orders.length}
+                    isAllChecked={0 !== group.length && group.length === orders.length}
                     toggleAllCheckbox={toggleAllCheckbox}/>
                 {
                     orders ?
                         orders.map((item) => {
                             return <DrinkListItem key={item.id} item={item} handleChange={() => handleChange(item)}
                                                   checked={group.indexOf(item.id) !== -1}
-                                                  toggleEditDetail={()=>toggleEditDetail(item)}/>
+                                                  toggleEditDetail={() => toggleEditDetail(item)}/>
                         })
                         : null
                 }
