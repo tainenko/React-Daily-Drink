@@ -1,3 +1,3 @@
-export const ADD_ORDER="ORDER/ADD";
-export const EDIT_ORDER="ORDER/EDIT";
-export const DEL_ORDER="ORDER/DEL";
+export const ADDORDER="ORDER/ADD";
+export const EDITORDER="ORDER/EDIT";
+export const DELORDER="ORDER/DEL";
