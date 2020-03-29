@@ -20,7 +20,7 @@ export const DelOrder = (id) => ({
     type: DEL_ORDER,
     id: id
 });
-export const DelSomeOrder = (list) => ({
+export const DelSomeOrder = (object) => ({
     type: DEL_SOME_ORDER,
-    list: list
+    object: object
 });

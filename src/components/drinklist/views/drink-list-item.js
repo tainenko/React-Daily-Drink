@@ -1,16 +1,18 @@
 import "./style.scss";
 import React from "react";
 
-const DrinkListItem = ({item, handleChange, checked, toggleEditDetail}) => {
+const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
     const handleChangeWithItem = () => {
-        handleChange(item)
+        handleChange(id)
     };
     const toggleEditDetailWithItem = () => {
-        toggleEditDetail(item)
+        toggleEditDetail({
+            id: id,
+            ...item
+        })
     };
     return (
         <div
-            key={item.id}
             className="dailyDrink__list__order transition"
         >
             <input

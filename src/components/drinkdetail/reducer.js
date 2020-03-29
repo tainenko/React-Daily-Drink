@@ -1,54 +1,70 @@
 import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actionsTypes";
+import diffObject from "../utils/tool";
 
-const reducer = (state = [
-    {
-        id: 1,
-        name: "奶茶",
-        price: 20,
-        notes: ""
-    }, {
-        id: 2,
-        name: "奶綠",
-        price: 30,
-        note: ""
+const reducer = (state = {
+    total: 2,
+    group: {
+        100: {
+            name: "奶茶",
+            price: 20,
+            notes: ""
+        },
+        101: {
+            name: "奶綠",
+            price: 30,
+            note: ""
+        }
     }
 
-], action) => {
+
+}, action) => {
     switch (action.type) {
         case ADD_ORDER: {
-            return [
-                {
-                    id: action.id,
-                    name: action.name,
-                    price: action.price,
-                    notes: action.notes
-                },
-                ...state
-            ]
+            return {
+                total: state.total + 1,
+                group: {
+                    ...state.group,
+                    [action.id]: {
+                        name: action.name,
+                        price: action.price,
+                        note: action.note
+                    }
+                }
+            };
         }
         case EDIT_ORDER: {
-            return state.map((item) => {
-                if (item.id === action.id) {
-                    return {
-                        id: action.id,
+            return {
+                total: state.total,
+                group: {
+                    ...state.group,
+                    [action.id]: {
                         name: action.name,
                         price: action.price,
                         notes: action.notes
-                    }
-                } else {
-                    return item
+                    },
                 }
-            })
+            };
         }
         case DEL_ORDER: {
-            return state.filter((item) => {
-                return item.id !== action.id
-            })
+            const {
+                group:{
+                    [action.id]:dropItem,
+                    ...newGroup
+                }
+            }=state;
+            return {
+                total:state.total-1,
+                group:{
+                    ...newGroup
+                }
+            };
         }
         case DEL_SOME_ORDER: {
-            return state.filter((item) => {
-                return action.list.indexOf(item.id) === -1
-            })
+            return{
+                total:state.total-action.total,
+                group:diffObject(action.group,state.group)
+            }
+
         }
         default:
             return state

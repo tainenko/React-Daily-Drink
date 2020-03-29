@@ -4,34 +4,53 @@ import DrinkListItem from "./drink-list-item";
 import DrinkListControl from "./drink-list-control";
 import DrinkListTitle from "./drink-list-title";
 import {connect} from "react-redux";
-import {actions} from"../../drinkdetail";
+import {actions} from "../../drinkdetail";
 import {history} from "../../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
-    const [group, setGroup] = useState([]);
+    const [group, setGroup] = useState({
+        total: 0,
+        group: {}
+    });
 
 
-    const handleChange = (item) => {
-        const index = group.indexOf(item.id);
-        if (index === -1) {
-            setGroup((prevState) => (
-                [...prevState, item.id]
-            ))
+    const handleChange = (id) => {
+        const isExist = group.group.hasOwnProperty(id);
+        if (isExist === false) {
+            setGroup({
+                total: group.total + 1,
+                group: {
+                    [id]: orders.group[id],
+                    ...group.group
+                }
+            });
         } else {
-            setGroup((prevState) => (prevState.filter((value) => value !== item.id)
-            ))
+            const {
+                [id]: item,
+                ...newGroup
+            } = group.group;
+            setGroup({
+                total: group.total - 1,
+                group: newGroup
+            });
         }
     };
     const toggleAllCheckbox = () => {
-        if (group.length !== orders.length) {
-            setGroup(orders.map((item) => item.id))
+        if (group.total !== orders.total) {
+            setGroup(orders);
         } else {
-            setGroup([])
+            setGroup({
+                total: 0,
+                group: {}
+            });
         }
     };
     const handleDeleteBtn = () => {
         DelSomeOrder(group);
-        setGroup([])
+        setGroup({
+            total: 0,
+            group: {}
+        });
     };
     const toggleEditDetail = (item) => {
         history.push({
@@ -49,22 +68,21 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
         <div className="dailyDrink w900 p-20">
             <Header title="Daily Drink"/>
             <div className="dailyDrink__list">
-                <DrinkListControl isDelClickable={group.length > 0}
+                <DrinkListControl isDelClickable={Object.keys(group.group).length > 1}
                                   handleDeleteBtn={handleDeleteBtn}
                                   handleAddItem={handleAddItem}/>
                 <DrinkListTitle
-                    isAllChecked={0 !== group.length && group.length === orders.length}
+                    isAllChecked={0 !== orders.total && group.total === orders.total}
                     toggleAllCheckbox={toggleAllCheckbox}/>
                 {
                     orders ?
-                        orders.map((item) => {
-                            return <DrinkListItem key={item.id} item={item} handleChange={handleChange}
-                                                  checked={group.indexOf(item.id) !== -1}
+                        Object.keys(orders.group).map((id) => {
+                            return <DrinkListItem key={id} item={orders.group[id]} id={id} handleChange={handleChange}
+                                                  checked={group.group.hasOwnProperty(id)}
                                                   toggleEditDetail={toggleEditDetail}/>
                         })
                         : null
                 }
-
             </div>
         </div>
     );
@@ -78,8 +96,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        DelSomeOrder: (list) => {
-            dispatch(actions.DelSomeOrder(list))
+        DelSomeOrder: (object) => {
+            dispatch(actions.DelSomeOrder(object))
         }
 
     }
