@@ -68,7 +68,7 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
         <div className="dailyDrink w900 p-20">
             <Header title="Daily Drink"/>
             <div className="dailyDrink__list">
-                <DrinkListControl isDelClickable={Object.keys(group.group).length > 1}
+                <DrinkListControl isDelClickable={group.total > 0}
                                   handleDeleteBtn={handleDeleteBtn}
                                   handleAddItem={handleAddItem}/>
                 <DrinkListTitle
