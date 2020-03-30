@@ -22,5 +22,6 @@ export const DelOrder = (id) => ({
 });
 export const DelSomeOrder = (object) => ({
     type: DEL_SOME_ORDER,
-    object: object
+    total: object.total,
+    group: object.group
 });
