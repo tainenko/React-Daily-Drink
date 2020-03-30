@@ -2,18 +2,8 @@ import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actionsTypes";
 import diffObject from "../Utils/ObjectUtils";
 
 const reducer = (state = {
-    total: 2,
+    total: 0,
     group: {
-        100: {
-            name: "奶茶",
-            price: 20,
-            notes: ""
-        },
-        101: {
-            name: "奶綠",
-            price: 30,
-            note: ""
-        }
     }
 }, action) => {
     switch (action.type) {
