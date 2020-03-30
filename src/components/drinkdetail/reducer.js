@@ -1,5 +1,5 @@
 import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actionsTypes";
-import diffObject from "../utils/tool";
+import diffObject from "../Utils/ObjectUtils";
 
 const reducer = (state = {
     total: 2,
@@ -15,8 +15,6 @@ const reducer = (state = {
             note: ""
         }
     }
-
-
 }, action) => {
     switch (action.type) {
         case ADD_ORDER: {
@@ -54,17 +52,14 @@ const reducer = (state = {
             }=state;
             return {
                 total:state.total-1,
-                group:{
-                    ...newGroup
-                }
+                group:newGroup
             };
         }
         case DEL_SOME_ORDER: {
             return{
                 total:state.total-action.total,
-                group:diffObject(action.group,state.group)
+                group:diffObject(state.group,action.group)
             }
-
         }
         default:
             return state
