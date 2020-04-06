@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import Header from "../../header";
-import DrinkListItem from "./drink-list-item";
-import DrinkListControl from "./drink-list-control";
-import DrinkListTitle from "./drink-list-title";
+import Header from "../../components/header";
+import DrinkListItem from "../../components/drinklist/views/drink-list-item";
+import DrinkListControl from "../../components/drinklist/views/drink-list-control";
+import DrinkListTitle from "../../components/drinklist/views/drink-list-title";
 import {connect} from "react-redux";
-import {actions} from "../../drinkdetail";
-import {history} from "../../../App.jsx"
+import {actions} from "../../components/drinkdetail";
+import {history} from "../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
     const [group, setGroup] = useState({
