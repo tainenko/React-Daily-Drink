@@ -4,7 +4,7 @@ import {Formik} from "formik";
 import DrinkDetailErrorSchema from "./drink-detail-error-schema";
 import "./style.scss"
 import DrinkDetailInnerform from "./drink-detail-innerform";
-import {AddOrder, EditOrder} from "../actions";
+import {AddOrder, EditOrder} from "../../../store/order/actions";
 import {connect} from "react-redux";
 import {history} from "../../../App.jsx";
 import {useLocation} from "react-router-dom";

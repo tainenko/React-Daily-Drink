@@ -1,4 +1,4 @@
-import {ADD_ORDER, EDIT_ORDER, DEL_ORDER, DEL_SOME_ORDER} from "./actionsTypes";
+import {ADD_ORDER, EDIT_ORDER, DEL_ORDER, DEL_SOME_ORDER} from "./actions_types";
 
 let orderId = 0;
 export const AddOrder = (item) => ({

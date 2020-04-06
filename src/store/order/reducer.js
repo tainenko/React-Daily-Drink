@@ -1,10 +1,9 @@
-import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actionsTypes";
-import diffObject from "../Utils/ObjectUtils";
+import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actions_types";
+import diffObject from "../../components/Utils/ObjectUtils";
 
 const reducer = (state = {
     total: 0,
-    group: {
-    }
+    group: {}
 }, action) => {
     switch (action.type) {
         case ADD_ORDER: {
@@ -35,20 +34,20 @@ const reducer = (state = {
         }
         case DEL_ORDER: {
             const {
-                group:{
-                    [action.id]:dropItem,
+                group: {
+                    [action.id]: dropItem,
                     ...newGroup
                 }
-            }=state;
+            } = state;
             return {
-                total:state.total-1,
-                group:newGroup
+                total: state.total - 1,
+                group: newGroup
             };
         }
         case DEL_SOME_ORDER: {
-            return{
-                total:state.total-action.total,
-                group:diffObject(state.group,action.group)
+            return {
+                total: state.total - action.total,
+                group: diffObject(state.group, action.group)
             }
         }
         default:

@@ -1,5 +1,5 @@
-import reducer from "./reducer";
-import * as actions from "./actions";
+import reducer from "../../store/order/reducer";
+import * as actions from "../../store/order/actions";
 import DrinkDetailPage from "./views/drink-detail-page"
 
 
