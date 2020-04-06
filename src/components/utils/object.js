@@ -1,4 +1,5 @@
 import _ from "lodash";
+
 function diffObject(object, base) {
     function changes(object, base) {
         const accumulator = {};
@@ -19,6 +20,7 @@ function diffObject(object, base) {
             accumulator
         );
     }
+
     return changes(object, base);
 }
 
