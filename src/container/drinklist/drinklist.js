@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Header from "../../components/header";
-import Item from "./views/Item";
+import DrinkListItem from "./views/Item";
 import Control from "./views/Control";
 import Title from "./views/Title";
 import {connect} from "react-redux";
@@ -54,12 +54,12 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
     };
     const toggleEditDetail = (item) => {
         history.push({
-            pathname: '/drinkdetail',
+            pathname: '/detail',
             state: item
         })
     };
     const handleAddItem = () => {
-        history.push('/drinkdetail')
+        history.push('/detail')
 
     };
 
@@ -77,9 +77,9 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                 {
                     orders ?
                         Object.keys(orders.group).map((id) => {
-                            return <Item key={id} item={orders.group[id]} id={id} handleChange={handleChange}
-                                         checked={group.group.hasOwnProperty(id)}
-                                         toggleEditDetail={toggleEditDetail}/>
+                            return <DrinkListItem key={id} item={orders.group[id]} id={id} handleChange={handleChange}
+                                                  checked={group.group.hasOwnProperty(id)}
+                                                  toggleEditDetail={toggleEditDetail}/>
                         })
                         : null
                 }

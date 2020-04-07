@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import "./style.scss";
 
 const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
@@ -26,7 +25,7 @@ const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
             />
             <div data-testid="item-name" className="list-name" onClick={toggleEditDetailWithItem}>{item.name}</div>
             <div data-testid="item-price" className="list-price" onClick={toggleEditDetailWithItem}>{item.price}</div>
-            <div data-testid="item-note" className="list-note" onClick={toggleEditDetailWithItem}>{item.notes}</div>
+            <div data-testid="item-notes" className="list-note" onClick={toggleEditDetailWithItem}>{item.notes}</div>
         </div>
     );
 };

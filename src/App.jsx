@@ -3,8 +3,8 @@ import {Provider} from "react-redux";
 import {Router, Route} from 'react-router-dom';
 import {createBrowserHistory} from "history";
 import store from "./store";
-import DrinkListPage from "./components/drink/list";
-import {DrinkDetailPage} from "./components/drink/detail"
+import DrinkListPage from "./container/drinklist";
+import {DrinkDetailPage} from "./container/drinkdetail"
 
 const history = createBrowserHistory();
 
