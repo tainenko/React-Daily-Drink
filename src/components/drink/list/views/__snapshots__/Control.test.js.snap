@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="dailyDrink__list__control"
+  >
+    <button
+      class="btn btn-add transition"
+      data-testid="add button"
+    >
+      + Add
+    </button>
+    <button
+      class="btn btn-delete transition disable"
+      data-testid="del button"
+      disabled=""
+    >
+      - Delete
+    </button>
+  </div>
+</DocumentFragment>
+`;

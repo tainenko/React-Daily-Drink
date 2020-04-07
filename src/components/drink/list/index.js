@@ -1,3 +1,3 @@
-import DrinkListPage from "../../../page/drinklist/drinklist"
+import DrinkListPage from "./drinklist"
 
 export default DrinkListPage;
