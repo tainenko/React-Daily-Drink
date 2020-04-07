@@ -1,5 +1,5 @@
 import {ADD_ORDER, DEL_ORDER, DEL_SOME_ORDER, EDIT_ORDER} from "./actions_types";
-import diffObject from "../../components/Utils/ObjectUtils";
+import diffObject from "../../utils/object";
 
 const reducer = (state = {
     total: 0,
