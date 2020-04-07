@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../../components/header";
-import DrinkDetailFormik from "../../components/drink/detail/views/Formik";
+import Header from "../../header";
+import DrinkDetailFormik from "./views/DrinkFormik";
 
 const DrinkDetailPage = () => {
 

@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import {Formik} from "formik";
 import DetailErrorSchema from "./ErrorSchema";
 import "./style.scss"
-import Form from "./Form";
-import {AddOrder, EditOrder} from "../../../store/order/actions";
+import InnerForm from "./InnerForm";
+import {AddOrder, EditOrder} from "../../../../store/order/actions";
 import {connect} from "react-redux";
-import {history} from "../../../App.jsx";
+import {history} from "../../../../App.jsx";
 import {useLocation} from "react-router-dom";
 
 
@@ -35,7 +35,7 @@ const DrinkFormik = ({handleAddOrder, handleEditOrder}) => {
                 });
                 history.push('/');
             }}>
-            <Form/>
+            <InnerForm/>
         </Formik>
     );
 };
