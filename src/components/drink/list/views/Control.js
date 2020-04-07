@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Control = ({isDelClickable, handleAddItem, handleDeleteBtn}) => (
     <div className="dailyDrink__list__control">
@@ -18,5 +19,11 @@ const Control = ({isDelClickable, handleAddItem, handleDeleteBtn}) => (
         </button>
     </div>
 );
+
+Control.propTypes = {
+    isDelClickable: PropTypes.bool.isRequired,
+    handleAddItem: PropTypes.func,
+    handleDeleteBtn: PropTypes.func
+};
 
 export default Control;
