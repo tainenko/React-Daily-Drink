@@ -1,7 +1,9 @@
-import "./style.scss";
 import React from "react";
+import PropTypes from "prop-types";
 
-const Item = ({item, id, handleChange, checked, toggleEditDetail}) => {
+import "./style.scss";
+
+const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
     const handleChangeWithItem = () => {
         handleChange(id)
     };
@@ -28,4 +30,11 @@ const Item = ({item, id, handleChange, checked, toggleEditDetail}) => {
     );
 };
 
-export default Item;
+DrinkListItem.propTypes = {
+    item: PropTypes.object.isRequired,
+    id: PropTypes.number.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
+    toggleEditDetail: PropTypes.func.isRequired
+};
+export default DrinkListItem;
