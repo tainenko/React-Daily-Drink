@@ -18,14 +18,15 @@ const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
             className="dailyDrink__list__order transition"
         >
             <input
+                data-testid="checkbox"
                 className="checkbox list-check"
                 type="checkbox"
                 onChange={handleChangeWithItem}
                 checked={checked}
             />
-            <div className="list-name" onClick={toggleEditDetailWithItem}>{item.name}</div>
-            <div className="list-price" onClick={toggleEditDetailWithItem}>{item.price}</div>
-            <div className="list-note" onClick={toggleEditDetailWithItem}>{item.notes}</div>
+            <div data-testid="item-name" className="list-name" onClick={toggleEditDetailWithItem}>{item.name}</div>
+            <div data-testid="item-price" className="list-price" onClick={toggleEditDetailWithItem}>{item.price}</div>
+            <div data-testid="item-note" className="list-note" onClick={toggleEditDetailWithItem}>{item.notes}</div>
         </div>
     );
 };
