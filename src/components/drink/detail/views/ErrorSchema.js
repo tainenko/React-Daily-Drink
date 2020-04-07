@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from "yup";
 
-const DrinkDetailErrorSchema = Yup.object().shape({
+const DetailErrorSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, '必須大於兩個字')
         .max(70, '不可超過70字')
@@ -15,4 +15,4 @@ const DrinkDetailErrorSchema = Yup.object().shape({
         .max(300,'備註不可超過300字')
 });
 
-export default DrinkDetailErrorSchema;
+export default DetailErrorSchema;

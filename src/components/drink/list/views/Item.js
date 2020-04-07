@@ -1,7 +1,7 @@
 import "./style.scss";
 import React from "react";
 
-const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
+const Item = ({item, id, handleChange, checked, toggleEditDetail}) => {
     const handleChangeWithItem = () => {
         handleChange(id)
     };
@@ -28,4 +28,4 @@ const DrinkListItem = ({item, id, handleChange, checked, toggleEditDetail}) => {
     );
 };
 
-export default DrinkListItem;
+export default Item;

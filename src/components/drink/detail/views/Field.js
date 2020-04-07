@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {useField} from "formik";
 
-const DrinkField = ({label, as = "input", ...props}) => {
+const Field = ({label, as = "input", ...props}) => {
     const [field, meta, helpers] = useField(props);
     const CustomTag = `${as}`;
     return (
@@ -18,10 +18,10 @@ const DrinkField = ({label, as = "input", ...props}) => {
     )
 };
 
-DrinkField.propTypes = {
+Field.propTypes = {
     label: PropTypes.string.isRequired,
     as: PropTypes.string
 };
 
 
-export default DrinkField;
+export default Field;

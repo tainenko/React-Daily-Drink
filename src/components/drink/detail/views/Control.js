@@ -1,7 +1,7 @@
 import React from "react";
 import {useFormikContext} from "formik";
 
-const DrinkDetailControl = () => {
+const Control = () => {
     const {values, isSubmitting} = useFormikContext();
     return (<div className="dailyDrink__orderList__control">
             <button type="submit"
@@ -15,4 +15,4 @@ const DrinkDetailControl = () => {
 };
 
 
-export default DrinkDetailControl;
+export default Control;

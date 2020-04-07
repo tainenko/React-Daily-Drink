@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DrinkListTitle = ({isAllChecked, toggleAllCheckbox}) => (
+const Title = ({isAllChecked, toggleAllCheckbox}) => (
     <div className="dailyDrink__list__head">
         <input
             className="checkbox list-check"
@@ -13,4 +13,4 @@ const DrinkListTitle = ({isAllChecked, toggleAllCheckbox}) => (
         <div className="list-note">Note</div>
     </div>
 );
-export default DrinkListTitle;
+export default Title;

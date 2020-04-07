@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import {Formik} from "formik";
-import DrinkDetailErrorSchema from "./drink-detail-error-schema";
+import DetailErrorSchema from "./ErrorSchema";
 import "./style.scss"
-import DrinkDetailInnerform from "./drink-detail-innerform";
+import Form from "./Form";
 import {AddOrder, EditOrder} from "../../../store/order/actions";
 import {connect} from "react-redux";
 import {history} from "../../../App.jsx";
 import {useLocation} from "react-router-dom";
 
 
-const DrinkDetailFormik = ({handleAddOrder, handleEditOrder}) => {
+const Formik = ({handleAddOrder, handleEditOrder}) => {
     const location = useLocation();
     const item = location.state;
     const handleSubmit = item ? handleEditOrder : handleAddOrder;
@@ -24,7 +24,7 @@ const DrinkDetailFormik = ({handleAddOrder, handleEditOrder}) => {
                     }
                 }
             }
-            validationSchema={DrinkDetailErrorSchema}
+            validationSchema={DetailErrorSchema}
             onSubmit={(values, actions) => {
                 actions.setSubmitting(false);
                 handleSubmit({
@@ -35,12 +35,12 @@ const DrinkDetailFormik = ({handleAddOrder, handleEditOrder}) => {
                 });
                 history.push('/');
             }}>
-            <DrinkDetailInnerform/>
+            <Form/>
         </Formik>
     );
 };
 
-DrinkDetailFormik.propTypes = {
+Formik.propTypes = {
     handleAddOrder: PropTypes.func.isRequired,
     handleEditOrder: PropTypes.func.isRequired,
 };
@@ -58,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export default connect(null, mapDispatchToProps)(DrinkDetailFormik);
+export default connect(null, mapDispatchToProps)(Formik);
