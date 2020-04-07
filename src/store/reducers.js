@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import {reducer as OrderReducer} from "../components/drink/detail"
+import OrderReducer from "./order/reducer"
 
 const reducers = combineReducers({
     orders: OrderReducer
