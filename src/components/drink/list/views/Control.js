@@ -13,6 +13,7 @@ const Control = ({isDelClickable, handleAddItem, handleDeleteBtn}) => (
         <button
             data-testid="del button"
             className={`btn btn-delete transition ${isDelClickable ? "" : "disable"}`}
+            disabled={!isDelClickable}
             onClick={handleDeleteBtn}
         >
             - Delete
