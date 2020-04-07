@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "../../header";
+import Header from "../../components/header";
 import DrinkDetailFormik from "./views/DrinkFormik";
 
 const DrinkDetailPage = () => {

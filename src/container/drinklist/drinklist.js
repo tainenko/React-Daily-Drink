@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import Header from "../../header";
+import Header from "../../components/header";
 import Item from "./views/Item";
 import Control from "./views/Control";
 import Title from "./views/Title";
 import {connect} from "react-redux";
-import {actions} from "../detail";
-import {history} from "../../../App.jsx"
+import {actions} from "../drinkdetail";
+import {history} from "../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
     const [group, setGroup] = useState({
@@ -54,12 +54,12 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
     };
     const toggleEditDetail = (item) => {
         history.push({
-            pathname: '/detail',
+            pathname: '/drinkdetail',
             state: item
         })
     };
     const handleAddItem = () => {
-        history.push('/detail')
+        history.push('/drinkdetail')
 
     };
 
