@@ -1,5 +1,6 @@
 import React from "react";
 import {render, cleanup} from '@testing-library/react';
+import "@testing-library/jest-dom/extend-expect";
 import Control from "./Control";
 
 afterEach(cleanup);
@@ -21,3 +22,7 @@ it('should take a snapshot', () => {
     expect(asFragment(<Control/>)).toMatchSnapshot()
 });
 
+it('addBtn should have text "+ Add"',()=>{
+    const {addBtn}=setup();
+    expect(addBtn).toHaveTextContent("+ Add")
+});
