@@ -77,7 +77,10 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
                 {
                     orders ?
                         Object.keys(orders.group).map((id) => {
-                            return <DrinkListItem key={id} item={orders.group[id]} id={id} handleChange={handleChange}
+                            return <DrinkListItem key={id}
+                                                  item={orders.group[id]}
+                                                  id={id}
+                                                  handleChange={handleChange}
                                                   checked={group.group.hasOwnProperty(id)}
                                                   toggleEditDetail={toggleEditDetail}/>
                         })
