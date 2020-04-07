@@ -10,7 +10,7 @@ import {history} from "../../../App.jsx";
 import {useLocation} from "react-router-dom";
 
 
-const Formik = ({handleAddOrder, handleEditOrder}) => {
+const DrinkFormik = ({handleAddOrder, handleEditOrder}) => {
     const location = useLocation();
     const item = location.state;
     const handleSubmit = item ? handleEditOrder : handleAddOrder;
@@ -40,7 +40,7 @@ const Formik = ({handleAddOrder, handleEditOrder}) => {
     );
 };
 
-Formik.propTypes = {
+DrinkFormik.propTypes = {
     handleAddOrder: PropTypes.func.isRequired,
     handleEditOrder: PropTypes.func.isRequired,
 };
@@ -58,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export default connect(null, mapDispatchToProps)(Formik);
+export default connect(null, mapDispatchToProps)(DrinkFormik);

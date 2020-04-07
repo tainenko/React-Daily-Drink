@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import Header from "../../components/header";
-import DrinkListItem from "../../components/drinklist/views/drink-list-item";
-import DrinkListControl from "../../components/drinklist/views/drink-list-control";
-import DrinkListTitle from "../../components/drinklist/views/drink-list-title";
+import Item from "../../components/drink/list/views/Item";
+import Control from "../../components/drink/list/views/Control";
+import Title from "../../components/drink/list/views/Title";
 import {connect} from "react-redux";
-import {actions} from "../../components/drinkdetail";
+import {actions} from "../../components/drink/detail";
 import {history} from "../../App.jsx"
 
 const DrinkListPage = ({orders, DelSomeOrder}) => {
@@ -68,18 +68,18 @@ const DrinkListPage = ({orders, DelSomeOrder}) => {
         <div className="dailyDrink w900 p-20">
             <Header title="Daily Drink"/>
             <div className="dailyDrink__list">
-                <DrinkListControl isDelClickable={group.total > 0}
-                                  handleDeleteBtn={handleDeleteBtn}
-                                  handleAddItem={handleAddItem}/>
-                <DrinkListTitle
+                <Control isDelClickable={group.total > 0}
+                         handleDeleteBtn={handleDeleteBtn}
+                         handleAddItem={handleAddItem}/>
+                <Title
                     isAllChecked={0 !== orders.total && group.total === orders.total}
                     toggleAllCheckbox={toggleAllCheckbox}/>
                 {
                     orders ?
                         Object.keys(orders.group).map((id) => {
-                            return <DrinkListItem key={id} item={orders.group[id]} id={id} handleChange={handleChange}
-                                                  checked={group.group.hasOwnProperty(id)}
-                                                  toggleEditDetail={toggleEditDetail}/>
+                            return <Item key={id} item={orders.group[id]} id={id} handleChange={handleChange}
+                                         checked={group.group.hasOwnProperty(id)}
+                                         toggleEditDetail={toggleEditDetail}/>
                         })
                         : null
                 }
